@@ -2,7 +2,17 @@ package com.helloapp;
 
 public class HelloApp {
     public static void main(String[] args) {
-        String name = (args.length > 0) ? String.join(", ", args) : "World";
-        System.out.println("Hello, " + name + "!");
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (String name : args) {
+                if (sb.length() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(name);
+            }
+            System.out.println("Hello, " + sb.toString() + "!");
+        }
     }
 }
